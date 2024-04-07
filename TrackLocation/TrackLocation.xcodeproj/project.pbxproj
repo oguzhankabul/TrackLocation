@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84014E4B2BC2C077004405E9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84014E4A2BC2C077004405E9 /* Location.swift */; };
 		84B901A62BC1FF2600A93605 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B901A52BC1FF2600A93605 /* UIView+Extension.swift */; };
 		84B901A92BC2005D00A93605 /* TrackMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B901A82BC2005D00A93605 /* TrackMapViewController.swift */; };
 		84B901AB2BC2006700A93605 /* TrackMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B901AA2BC2006700A93605 /* TrackMapViewModel.swift */; };
 		84B901AD2BC2007400A93605 /* TrackMapViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B901AC2BC2007400A93605 /* TrackMapViewRouter.swift */; };
 		84B901AF2BC2007F00A93605 /* TrackMapViewRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B901AE2BC2007F00A93605 /* TrackMapViewRoute.swift */; };
 		84B901B12BC2037500A93605 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B901B02BC2037500A93605 /* BaseNavigationController.swift */; };
+		84B901C42BC2942B00A93605 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B901C32BC2942B00A93605 /* Int+Extension.swift */; };
+		84B901C82BC296AF00A93605 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B901C72BC296AF00A93605 /* LocationManager.swift */; };
 		84BB394A2BC1D34F0011170F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB39492BC1D34F0011170F /* AppDelegate.swift */; };
 		84BB394E2BC1D34F0011170F /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB394D2BC1D34F0011170F /* SplashScreenViewController.swift */; };
 		84BB39532BC1D3500011170F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84BB39522BC1D3500011170F /* Assets.xcassets */; };
@@ -50,12 +53,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84014E4A2BC2C077004405E9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		84B901A52BC1FF2600A93605 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		84B901A82BC2005D00A93605 /* TrackMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackMapViewController.swift; sourceTree = "<group>"; };
 		84B901AA2BC2006700A93605 /* TrackMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackMapViewModel.swift; sourceTree = "<group>"; };
 		84B901AC2BC2007400A93605 /* TrackMapViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackMapViewRouter.swift; sourceTree = "<group>"; };
 		84B901AE2BC2007F00A93605 /* TrackMapViewRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackMapViewRoute.swift; sourceTree = "<group>"; };
 		84B901B02BC2037500A93605 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		84B901C32BC2942B00A93605 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		84B901C72BC296AF00A93605 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		84BB39462BC1D34F0011170F /* TrackLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BB39492BC1D34F0011170F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84BB394D2BC1D34F0011170F /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
@@ -104,10 +110,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84014E482BC2C055004405E9 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				84014E492BC2C06D004405E9 /* Models */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		84014E492BC2C06D004405E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84014E4A2BC2C077004405E9 /* Location.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		84B901A42BC1FF0700A93605 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				84B901A52BC1FF2600A93605 /* UIView+Extension.swift */,
+				84B901C32BC2942B00A93605 /* Int+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -128,6 +151,21 @@
 				84BB39522BC1D3500011170F /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		84B901BD2BC2879F00A93605 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		84B901C62BC296A100A93605 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				84B901C72BC296AF00A93605 /* LocationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		84BB393D2BC1D34F0011170F = {
@@ -153,6 +191,8 @@
 		84BB39482BC1D34F0011170F /* TrackLocation */ = {
 			isa = PBXGroup;
 			children = (
+				84014E482BC2C055004405E9 /* DataProvider */,
+				84B901BD2BC2879F00A93605 /* UIComponents */,
 				84BB39832BC1E0450011170F /* Utilities */,
 				84BB397A2BC1DFC20011170F /* AppDelegate */,
 				84BB39792BC1DFB20011170F /* Scenes */,
@@ -217,6 +257,7 @@
 		84BB39832BC1E0450011170F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				84B901C62BC296A100A93605 /* Managers */,
 				84B901B22BC2041500A93605 /* Assets */,
 				84B901A42BC1FF0700A93605 /* Extensions */,
 				84BB398D2BC1E0AC0011170F /* Helper */,
@@ -391,11 +432,14 @@
 				84BB394E2BC1D34F0011170F /* SplashScreenViewController.swift in Sources */,
 				84BB39862BC1E0640011170F /* BaseRouter.swift in Sources */,
 				84BB394A2BC1D34F0011170F /* AppDelegate.swift in Sources */,
+				84B901C42BC2942B00A93605 /* Int+Extension.swift in Sources */,
 				84B901AD2BC2007400A93605 /* TrackMapViewRouter.swift in Sources */,
+				84B901C82BC296AF00A93605 /* LocationManager.swift in Sources */,
 				84B901B12BC2037500A93605 /* BaseNavigationController.swift in Sources */,
 				84BB397D2BC1DFFB0011170F /* SplashScreenViewModel.swift in Sources */,
 				84BB39962BC1E1AB0011170F /* PushTransition.swift in Sources */,
 				84BB397F2BC1E00D0011170F /* SplashScreenRouter.swift in Sources */,
+				84014E4B2BC2C077004405E9 /* Location.swift in Sources */,
 				84BB398F2BC1E0BC0011170F /* ClosureHelper.swift in Sources */,
 				84B901A62BC1FF2600A93605 /* UIView+Extension.swift in Sources */,
 				84BB398A2BC1E0780011170F /* BaseViewModel.swift in Sources */,
@@ -565,6 +609,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R2B98N6BH8;
@@ -574,6 +619,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -581,6 +627,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oguzhankabul.TrackLocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -592,6 +639,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R2B98N6BH8;
@@ -601,6 +649,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -608,6 +657,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oguzhankabul.TrackLocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
