@@ -15,7 +15,31 @@ protocol TrackMapViewProtocol: TrackMapViewDataSource, TrackMapViewEventSource {
 
 final class TrackMapViewModel: BaseViewModel<TrackMapViewRouter>, TrackMapViewProtocol {
     
+    var locationList: [Location] {
+        return LocationManager.shared.getLocationList()
+    }
+    
+    var isTracking: Bool {
+        return LocationManager.shared.isTracking
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func resumeTracking() {
+        LocationManager.shared.resumeTracking()
+    }
+    
+    func startTracking() {
+        LocationManager.shared.startTracking()
+    }
+    
+    func resetTracking() {
+        LocationManager.shared.resetLocations()
+    }
+    
+    func stopTracking() {
+        LocationManager.shared.stopTracking()
     }
 }
