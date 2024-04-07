@@ -21,9 +21,9 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     weak var delegate: LocationManagerDelegate?
     
     var isTracking: Bool {
-            get { UserDefaults.standard.bool(forKey: "isTracking") }
-            set { UserDefaults.standard.set(newValue, forKey: "isTracking") }
-        }
+        get { UserDefaults.standard.bool(forKey: "isTracking") }
+        set { UserDefaults.standard.set(newValue, forKey: "isTracking") }
+    }
     
     var locations: [Location] {
         get {
@@ -38,17 +38,17 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
             UserDefaults.standard.set(data, forKey: "locations")
         }
     }
-
+    
     private override init() {
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
-
+    
     func requestLocationAuthorization() {
         locationManager.requestAlwaysAuthorization()
     }
-
+    
     func startTracking() {
         isTracking = true
         locationManager.distanceFilter = 100
@@ -60,7 +60,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
             delegate?.didUpdateLocations([currentLocation])
         }
     }
-
+    
     func stopTracking() {
         isTracking = false
         locationManager.stopUpdatingLocation()
@@ -73,14 +73,14 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations clLocations: [CLLocation]) {
         guard let newLocation = clLocations.last, isTracking else { return }
-
+        
         if locations.isEmpty || (locations.last?.clLocation.distance(from: newLocation) ?? 0) >= 100 {
             let newLocationModel = Location(from: newLocation)
             self.locations.append(newLocationModel)
             delegate?.didUpdateLocations([newLocation])
         }
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         delegate?.didChangeAuthorization(status: status)
     }

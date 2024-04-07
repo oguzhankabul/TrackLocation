@@ -101,10 +101,10 @@ final class TrackMapViewController: BaseViewController<TrackMapViewModel> {
     }
     
     private func addExistingPins() {
-        let existingLocations = LocationManager.shared.locations
-        for location in existingLocations {
+        for (index, location) in LocationManager.shared.locations.enumerated() {
             let annotation = MKPointAnnotation()
             annotation.coordinate = location.clLocation.coordinate
+            annotation.title = "\(index + 1)"
             mapView.addAnnotation(annotation)
         }
     }
@@ -137,6 +137,8 @@ final class TrackMapViewController: BaseViewController<TrackMapViewModel> {
     private func addPinForLocation(_ location: CLLocation) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = location.coordinate
+        let order = LocationManager.shared.locations.count
+        annotation.title = order.toString()
         mapView.addAnnotation(annotation)
     }
     
@@ -150,12 +152,12 @@ final class TrackMapViewController: BaseViewController<TrackMapViewModel> {
 extension TrackMapViewController: LocationManagerDelegate {
     func didUpdateLocations(_ locations: [CLLocation]) {
         guard let location = locations.last else { return }
-             addPinForLocation(location)
+        addPinForLocation(location)
     }
     
     func didChangeAuthorization(status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse || status == .authorizedAlways {
-
+            
         } else {
             print("Location authorization denied.")
         }
@@ -163,17 +165,31 @@ extension TrackMapViewController: LocationManagerDelegate {
 }
 
 extension TrackMapViewController: MKMapViewDelegate {
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let identifier = "pin"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
-        
         if pinView == nil {
             pinView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             pinView?.canShowCallout = true
+            pinView?.animatesWhenAdded = false
         } else {
             pinView?.annotation = annotation
         }
         return pinView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let annotation = view.annotation as? MKPointAnnotation else { return }
+        let geocoder = CLGeocoder()
+        let location = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+        geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
+            guard let _ = self, let placemark = placemarks?.first, error == nil else { return }
+            let addressArray = [placemark.subThoroughfare, placemark.thoroughfare, placemark.locality, placemark.administrativeArea, placemark.country].compactMap { $0 }
+            let address = addressArray.joined(separator: ", ")
+            DispatchQueue.main.async {
+                annotation.subtitle = address
+                mapView.selectAnnotation(annotation, animated: true)
+            }
+        }
     }
 }
