@@ -33,6 +33,7 @@
 		84BB39912BC1E0E20011170F /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB39902BC1E0E20011170F /* Transition.swift */; };
 		84BB39942BC1E1510011170F /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB39932BC1E1510011170F /* ModalTransition.swift */; };
 		84BB39962BC1E1AB0011170F /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB39952BC1E1AB0011170F /* PushTransition.swift */; };
+		84BE17622BC353F500250DD8 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE17612BC353F500250DD8 /* UserDefaultsKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		84BB39902BC1E0E20011170F /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		84BB39932BC1E1510011170F /* ModalTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTransition.swift; sourceTree = "<group>"; };
 		84BB39952BC1E1AB0011170F /* PushTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTransition.swift; sourceTree = "<group>"; };
+		84BE17612BC353F500250DD8 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +259,7 @@
 		84BB39832BC1E0450011170F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				84BE17602BC353E200250DD8 /* Keys */,
 				84B901C62BC296A100A93605 /* Managers */,
 				84B901B22BC2041500A93605 /* Assets */,
 				84B901A42BC1FF0700A93605 /* Extensions */,
@@ -296,6 +299,14 @@
 				84BB39952BC1E1AB0011170F /* PushTransition.swift */,
 			);
 			path = TransitionHelper;
+			sourceTree = "<group>";
+		};
+		84BE17602BC353E200250DD8 /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				84BE17612BC353F500250DD8 /* UserDefaultsKeys.swift */,
+			);
+			path = Keys;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,6 +452,7 @@
 				84BB397F2BC1E00D0011170F /* SplashScreenRouter.swift in Sources */,
 				84014E4B2BC2C077004405E9 /* Location.swift in Sources */,
 				84BB398F2BC1E0BC0011170F /* ClosureHelper.swift in Sources */,
+				84BE17622BC353F500250DD8 /* UserDefaultsKeys.swift in Sources */,
 				84B901A62BC1FF2600A93605 /* UIView+Extension.swift in Sources */,
 				84BB398A2BC1E0780011170F /* BaseViewModel.swift in Sources */,
 				84BB39912BC1E0E20011170F /* Transition.swift in Sources */,

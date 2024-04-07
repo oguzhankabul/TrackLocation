@@ -53,8 +53,8 @@ final class TrackMapViewController: BaseViewController<TrackMapViewModel> {
         super.viewDidLoad()
         viewModel.viewDidLoad()
         configureLocationManager()
-        updateUIForTrackingState(isTracking: LocationManager.shared.isTracking)
         addExistingPins()
+        updateUIForTrackingState(isTracking: viewModel.isTracking)
     }
     
     override func setupViews() {
@@ -87,45 +87,40 @@ final class TrackMapViewController: BaseViewController<TrackMapViewModel> {
     private func configureLocationManager() {
         LocationManager.shared.delegate = self
         LocationManager.shared.requestLocationAuthorization()
-        // If tracking was already in progress before the app was closed or backgrounded, resume it.
-        if LocationManager.shared.isTracking {
+        if viewModel.isTracking {
             resumeTracking()
         } else {
             updateUIForTrackingState(isTracking: false)
         }
     }
     
-    private func resumeTracking() {
-        LocationManager.shared.resumeTracking()
-        updateUIForTrackingState(isTracking: true)
-    }
-    
     private func addExistingPins() {
-        for (index, location) in LocationManager.shared.locations.enumerated() {
+        for location in viewModel.locationList {
             let annotation = MKPointAnnotation()
             annotation.coordinate = location.clLocation.coordinate
-            annotation.title = "\(index + 1)"
             mapView.addAnnotation(annotation)
         }
     }
     
     @objc private func startTracking() {
-        LocationManager.shared.startTracking()
+        viewModel.startTracking()
         updateUIForTrackingState(isTracking: true)
-        if let currentLocation = LocationManager.shared.locations.last?.clLocation {
-            addPinForLocation(currentLocation)
-        }
+    }
+    
+    private func resumeTracking() {
+        viewModel.resumeTracking()
+        updateUIForTrackingState(isTracking: true)
     }
     
     @objc private func stopTracking() {
-        LocationManager.shared.stopTracking()
+        viewModel.stopTracking()
         updateUIForTrackingState(isTracking: false)
     }
     
     @objc private func resetTracking() {
         mapView.removeAnnotations(mapView.annotations)
-        LocationManager.shared.resetLocations()
-        updateUIForTrackingState(isTracking: LocationManager.shared.isTracking)
+        viewModel.resetTracking()
+        updateUIForTrackingState(isTracking: viewModel.isTracking)
     }
     
     private func updateUIForTrackingState(isTracking: Bool) {
@@ -137,8 +132,6 @@ final class TrackMapViewController: BaseViewController<TrackMapViewModel> {
     private func addPinForLocation(_ location: CLLocation) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = location.coordinate
-        let order = LocationManager.shared.locations.count
-        annotation.title = order.toString()
         mapView.addAnnotation(annotation)
     }
     

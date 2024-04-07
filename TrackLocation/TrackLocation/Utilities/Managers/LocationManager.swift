@@ -21,13 +21,13 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     weak var delegate: LocationManagerDelegate?
     
     var isTracking: Bool {
-        get { UserDefaults.standard.bool(forKey: "isTracking") }
-        set { UserDefaults.standard.set(newValue, forKey: "isTracking") }
+        get { UserDefaults.standard.bool(forKey: UserDefaultsKeys.isTracking) }
+        set { UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.isTracking) }
     }
     
-    var locations: [Location] {
+    private var locations: [Location] {
         get {
-            guard let data = UserDefaults.standard.data(forKey: "locations"),
+            guard let data = UserDefaults.standard.data(forKey: UserDefaultsKeys.locations),
                   let locations = try? JSONDecoder().decode([Location].self, from: data) else {
                 return []
             }
@@ -35,7 +35,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         }
         set {
             let data = try? JSONEncoder().encode(newValue)
-            UserDefaults.standard.set(data, forKey: "locations")
+            UserDefaults.standard.set(data, forKey: UserDefaultsKeys.locations)
         }
     }
     
@@ -61,6 +61,15 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    func getLocationList() -> [Location] {
+        return locations
+    }
+    
+    func resetLocations() {
+        locations = []
+        UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.locations)
+    }
+    
     func stopTracking() {
         isTracking = false
         locationManager.stopUpdatingLocation()
@@ -83,10 +92,5 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         delegate?.didChangeAuthorization(status: status)
-    }
-    
-    func resetLocations() {
-        locations = []
-        UserDefaults.standard.removeObject(forKey: "locations")
     }
 }
