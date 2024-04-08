@@ -19,7 +19,7 @@
 		84BB394A2BC1D34F0011170F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB39492BC1D34F0011170F /* AppDelegate.swift */; };
 		84BB394E2BC1D34F0011170F /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB394D2BC1D34F0011170F /* SplashScreenViewController.swift */; };
 		84BB39532BC1D3500011170F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84BB39522BC1D3500011170F /* Assets.xcassets */; };
-		84BB39612BC1D3500011170F /* TrackLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB39602BC1D3500011170F /* TrackLocationTests.swift */; };
+		84BB39612BC1D3500011170F /* LocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB39602BC1D3500011170F /* LocationManagerTests.swift */; };
 		84BB396B2BC1D3500011170F /* TrackLocationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB396A2BC1D3500011170F /* TrackLocationUITests.swift */; };
 		84BB396D2BC1D3500011170F /* TrackLocationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB396C2BC1D3500011170F /* TrackLocationUITestsLaunchTests.swift */; };
 		84BB397D2BC1DFFB0011170F /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB397C2BC1DFFB0011170F /* SplashScreenViewModel.swift */; };
@@ -38,6 +38,7 @@
 		84BE17672BC35A6D00250DD8 /* WarningBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE17662BC35A6D00250DD8 /* WarningBottomSheetViewModel.swift */; };
 		84BE17692BC35A8200250DD8 /* WarningBottomSheetViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE17682BC35A8200250DD8 /* WarningBottomSheetViewRouter.swift */; };
 		84BE176B2BC35AAB00250DD8 /* WarningBottomSheetRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE176A2BC35AAB00250DD8 /* WarningBottomSheetRoute.swift */; };
+		84BE176D2BC3737C00250DD8 /* TrackMapViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE176C2BC3737C00250DD8 /* TrackMapViewModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +74,7 @@
 		84BB39522BC1D3500011170F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84BB39572BC1D3500011170F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84BB395C2BC1D3500011170F /* TrackLocationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackLocationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84BB39602BC1D3500011170F /* TrackLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackLocationTests.swift; sourceTree = "<group>"; };
+		84BB39602BC1D3500011170F /* LocationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTests.swift; sourceTree = "<group>"; };
 		84BB39662BC1D3500011170F /* TrackLocationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackLocationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BB396A2BC1D3500011170F /* TrackLocationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackLocationUITests.swift; sourceTree = "<group>"; };
 		84BB396C2BC1D3500011170F /* TrackLocationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackLocationUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -93,6 +94,7 @@
 		84BE17662BC35A6D00250DD8 /* WarningBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningBottomSheetViewModel.swift; sourceTree = "<group>"; };
 		84BE17682BC35A8200250DD8 /* WarningBottomSheetViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningBottomSheetViewRouter.swift; sourceTree = "<group>"; };
 		84BE176A2BC35AAB00250DD8 /* WarningBottomSheetRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningBottomSheetRoute.swift; sourceTree = "<group>"; };
+		84BE176C2BC3737C00250DD8 /* TrackMapViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackMapViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,7 +216,8 @@
 		84BB395F2BC1D3500011170F /* TrackLocationTests */ = {
 			isa = PBXGroup;
 			children = (
-				84BB39602BC1D3500011170F /* TrackLocationTests.swift */,
+				84BB39602BC1D3500011170F /* LocationManagerTests.swift */,
+				84BE176C2BC3737C00250DD8 /* TrackMapViewModelTest.swift */,
 			);
 			path = TrackLocationTests;
 			sourceTree = "<group>";
@@ -492,7 +495,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84BB39612BC1D3500011170F /* TrackLocationTests.swift in Sources */,
+				84BB39612BC1D3500011170F /* LocationManagerTests.swift in Sources */,
+				84BE176D2BC3737C00250DD8 /* TrackMapViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,7 +713,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R2B98N6BH8;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oguzhankabul.TrackLocationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -729,7 +733,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R2B98N6BH8;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oguzhankabul.TrackLocationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
