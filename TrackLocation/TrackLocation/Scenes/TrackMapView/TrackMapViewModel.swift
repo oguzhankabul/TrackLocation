@@ -7,9 +7,18 @@
 
 import Foundation
 
-protocol TrackMapViewDataSource { }
+protocol TrackMapViewDataSource {
+    var locationList: [Location] { get }
+    var isTracking: Bool { get }
+}
 
-protocol TrackMapViewEventSource { }
+protocol TrackMapViewEventSource {
+    func resumeTracking()
+    func startTracking()
+    func resetTracking()
+    func stopTracking()
+    func pushWarningView()
+}
 
 protocol TrackMapViewProtocol: TrackMapViewDataSource, TrackMapViewEventSource {}
 
@@ -44,6 +53,6 @@ final class TrackMapViewModel: BaseViewModel<TrackMapViewRouter>, TrackMapViewPr
     }
     
     func pushWarningView() {
-        router.pushWarningBottomSheet(warningMessage: "izin verin")
+        router.pushWarningBottomSheet(warningMessage: "Konum bilgisinin iznini vermeden uygulamayı kullanamazsınız.")
     }
 }
