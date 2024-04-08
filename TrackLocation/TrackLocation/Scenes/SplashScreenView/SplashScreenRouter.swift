@@ -8,5 +8,5 @@
 import Foundation
 
 final class SplashScreenRouter: Router, SplashScreenRouter.Routes {
-    typealias Routes = TrackMapViewRoute
+    typealias Routes = TrackMapViewRoute & WarningBottomSheetRoute
 }
