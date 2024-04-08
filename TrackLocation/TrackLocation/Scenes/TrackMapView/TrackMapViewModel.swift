@@ -42,4 +42,8 @@ final class TrackMapViewModel: BaseViewModel<TrackMapViewRouter>, TrackMapViewPr
     func stopTracking() {
         LocationManager.shared.stopTracking()
     }
+    
+    func pushWarningView() {
+        router.pushWarningBottomSheet(warningMessage: "izin verin")
+    }
 }

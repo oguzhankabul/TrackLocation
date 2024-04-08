@@ -7,4 +7,6 @@
 
 import Foundation
 
-final class TrackMapViewRouter: Router { }
+final class TrackMapViewRouter: Router, TrackMapViewRouter.Routes {
+    typealias Routes = WarningBottomSheetRoute
+}

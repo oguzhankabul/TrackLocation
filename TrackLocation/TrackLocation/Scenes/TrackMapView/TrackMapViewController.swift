@@ -86,7 +86,6 @@ final class TrackMapViewController: BaseViewController<TrackMapViewModel> {
     
     private func configureLocationManager() {
         LocationManager.shared.delegate = self
-        LocationManager.shared.requestLocationAuthorization()
         if viewModel.isTracking {
             resumeTracking()
         } else {
@@ -149,10 +148,15 @@ extension TrackMapViewController: LocationManagerDelegate {
     }
     
     func didChangeAuthorization(status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse || status == .authorizedAlways {
-            
-        } else {
-            print("Location authorization denied.")
+        switch status {
+        case .notDetermined:
+            LocationManager.shared.requestLocationAuthorization()
+        case .restricted:
+            viewModel.pushWarningView()
+        case .denied:
+            viewModel.pushWarningView()
+        default:
+            break
         }
     }
 }

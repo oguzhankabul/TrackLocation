@@ -17,7 +17,9 @@ extension TrackMapViewRoute where Self: RouterProtocol {
         let router = TrackMapViewRouter()
         let vm = TrackMapViewModel(router: router)
         let vc = TrackMapViewController(viewModel: vm)
+        router.viewController = vc
         let transition = PlaceOnWindowTransition()
+        router.openTransition = transition
         let nav = BaseNavigationController(rootViewController: vc)
         open(nav, transition: transition)
     }
